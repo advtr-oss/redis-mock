@@ -20,10 +20,12 @@
     "test": "mocha --timeout 5000 --recursive",
     "test:valid": "VALID_TESTS=true npm run test -- --exit",
     "lint": "eslint ./lib ./test",
+    "lint:fix": "eslint ./lib ./test --fix",
     "preversion": "node ./bin/updateMockedCoverage.js"
   },
   "files": [
-    "lib"
+    "lib",
+    "plugins"
   ],
   "keywords": [
     "redis",
