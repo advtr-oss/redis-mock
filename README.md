@@ -171,6 +171,27 @@ $ npm test:valid
 
 You will need to have a running instance of `redis` on you machine and our tests use flushdb a lot so make sure you don't have anything important on it.
 
+# Custom Commands
+
+Some commands might not come standard with redis-mock, i.e ReJSON and it's commands, but since they are valid commands
+and would be helpful to test, you can create your own commands and run them
+
+> WIP: Would like to an extra package that holds the official plugin commands so you can
+> add them to your project
+
+```javascript
+var redis = require("redis-mock")
+
+redis.addMockCommand('json.set', (client, args, callback) => {
+  // your logic here... probably something like: client.set(args[0], JSON.stringify(args[1]), callback);
+})
+
+// In your app
+redis.addCommand('json.set')
+
+var client redis.createClient()
+client.json_set('key', { json: 'value' }, redis.print) // 0 'OK'
+```
 
 # Roadmap
 redis-mock is work in progress, feel free to report an issue
