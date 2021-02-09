@@ -17,7 +17,7 @@
     "should": "13.2.3"
   },
   "scripts": {
-    "test": "mocha --timeout 5000 --recursive -g 'add*Command'",
+    "test": "mocha --timeout 5000 --recursive",
     "test:valid": "VALID_TESTS=true npm run test -- --exit",
     "lint": "eslint ./lib ./test",
     "lint:fix": "eslint ./lib ./test --fix",
